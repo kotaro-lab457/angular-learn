@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { products } from '../products';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
+  product: any;
+
+  // 引数はクラスの依存関係
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
 
+    // subscribe データの返却、エラー、正常の三つの引数がある。
+    this.route.paramMap.subscribe(params => {
+      this.product = products[+params.get("productId")!]
+    })
+  }
 }
