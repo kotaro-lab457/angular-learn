@@ -4,6 +4,7 @@ import { ProductModule } from './product/product.module';
 
 // router でパス, コンポーネントを読み込む
 const routes: Routes = [
+  { path: '', redirectTo: 'products', pathMatch: 'full' }
 ];
 
 @NgModule({
