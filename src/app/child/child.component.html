@@ -1,0 +1,9 @@
+<p>child works!</p>
+
+<p>コンポーネント：{{ child }}</p>
+
+<form>
+  <label for="item-input">リスト作成:</label>
+  <input type="text" id="item-input" #newItem>
+  <button (click)="addItemChild(newItem.value)">追加</button>
+</form>
