@@ -14,6 +14,8 @@ npm run start
 
 ## Code scaffolding
 
+コマンド：コンポーネント作成
+
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
