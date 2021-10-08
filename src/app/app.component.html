@@ -4,7 +4,7 @@
 
 <br />
 
-<h3>---カウントアップ---</h3>
+<h3>---イベントバインディング---</h3>
 <p>カウント：{{ count }}</p>
 <button (click)='countUp()'>たす</button>
 
@@ -19,14 +19,16 @@
 <br />
 
 <h3>---コンポーネント間のやりとり---</h3>
-<app-child [child]='parent' (itemChild)="addItem($event)"></app-child>
-<ul *ngFor="let item of items">
-  <li>{{item}}</li>
-</ul>
+<app-child [child]='parent'></app-child>
+<!-- <ul *ngFor="let item of items">
+  <li>{{ item }}</li>
+</ul> -->
 
 <h3>---プロパティバインディング---</h3>
 
-<button (click)="show = !show">{{show ? 'show' : 'hide'}}</button>
+<button (click)="show = !show">
+  {{show ? 'show' : 'hide'}}
+</button>
 <div *ngIf="!show">
   <img [src]='image' style='width:100%'>
 </div>

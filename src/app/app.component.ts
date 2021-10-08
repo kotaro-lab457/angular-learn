@@ -8,13 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-learn';
 
-  
   count = 0;
   countUp(){
     this.count++;
   };
   
-  name = 'hogehoge';
+  name = 'hello world';
+
   get nameText(){
     return this.name;
   }
@@ -22,9 +22,8 @@ export class AppComponent {
   parent = 'おや';
   
   items = ['item1', 'item2'];
-  
-  addItem(newItem: string) {
-    this.items.push(newItem);
+  addItem(item: string) {
+    this.items.push(item);
   }
   image = '../assets/img/idle.jpeg';
   

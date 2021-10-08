@@ -11,11 +11,11 @@ import {
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.scss']
 })
-export class ChildComponent  {
-  @Input() child = '';
+export class ChildComponent {
+  @Input() child: string = '';
 
   // 親に itemChild
-  @Output() itemChild = new EventEmitter<string>(); //EventEmitterで型宣言
+  @Output() itemChild = new EventEmitter(); //date型宣言
 
   addItemChild(value: string) {
     this.itemChild.emit(value); // emit 親に引数を知らせる

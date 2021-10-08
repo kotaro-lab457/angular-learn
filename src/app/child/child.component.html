@@ -3,7 +3,7 @@
 <p>コンポーネント：{{ child }}</p>
 
 <form>
-  <label for="item-input">リスト作成:</label>
-  <input type="text" id="item-input" #newItem>
-  <button (click)="addItemChild(newItem.value)">追加</button>
+  <label for="item-input">リスト作成：</label>
+  <input type="text" id="item-input" #item>
+  <button (click)="addItemChild(item.value)">追加</button>
 </form>
