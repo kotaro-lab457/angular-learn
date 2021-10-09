@@ -9,7 +9,7 @@ const productSchema = new Schema({
     max: [60, '最大60文字まで'],
   },
   description: String,
-  price: Date,
+  price: Number,
   header1: String,
   header2: String,
   header3: String,
