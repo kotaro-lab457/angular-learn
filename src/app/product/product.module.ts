@@ -4,6 +4,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CommonModule } from "@angular/common";
 import { ProductComponent } from "./product.component";
+import { ProductService } from "./shared/product.service";
+import { ProductItemComponent } from './product-item/product-item.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductComponent,
@@ -18,12 +20,15 @@ const routes: Routes = [
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
+    ProductItemComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule
   ],
-  providers: [],
+  providers: [
+    ProductService
+  ],
   bootstrap:[]
 })
 
