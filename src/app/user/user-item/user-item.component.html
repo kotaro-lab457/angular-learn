@@ -1,4 +1,4 @@
 <p>user-item works!</p>
-<li>
+<li *ngFor="let user of users">
   #{{ user.id }} {{ user.first_name }} {{ user.last_name }}
 </li>

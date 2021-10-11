@@ -8,5 +8,5 @@ import { User } from '../user';
 })
 export class UserItemComponent {
 
-  @Input() user!: User;
+  @Input() users!: User[];
 }
