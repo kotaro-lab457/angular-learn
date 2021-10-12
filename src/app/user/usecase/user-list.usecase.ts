@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, firstValueFrom } from 'rxjs';
+import { map } from 'rxjs';
 import { Store } from '../service/store.service';
-import { User } from '../user';
+import { UserApiService } from '../service/user-api.service';
 
 @Injectable({ providedIn: 'root' })
 export class UserListUsecase {
-  constructor(private http: HttpClient, private store: Store) {}
-  
   get users$() {
     return this.store
-      // state.userListに変更があったときだけ後続のpipeが実行される
       .select(state => state.userList)
       .pipe(
         map(({ items, filter }) =>
@@ -25,15 +21,10 @@ export class UserListUsecase {
     return this.store.select(state => state.userList.filter);
   }
 
+  constructor(private userApi: UserApiService, private store: Store) {}
 
   async fetchUsers() {
-
-    // 非同期処理の監視 fistValueFrom()
-    const users = await firstValueFrom(
-      this.http
-        .get<{ data: User[] }>('https://reqres.in/api/users')
-        .pipe(map(resp => resp.data))
-    );
+    const users = await this.userApi.getAllUsers();
 
     this.store.update(state => ({
       ...state,
@@ -50,6 +41,7 @@ export class UserListUsecase {
       userList: {
         ...state.userList,
         filter: {
+          ...state.userList.filter,
           nameFilter
         }
       }
