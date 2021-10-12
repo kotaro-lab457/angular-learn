@@ -1,4 +1,9 @@
 <p>user-list works!</p>
+<user-list-filter
+  *ngIf="userListFilter$ | async as userListFilter"
+  [value]="userListFilter"
+  (valueChange)="setUserListFilter($event)">
+</user-list-filter>
 <ul>
   <app-user-item *ngIf="users$ | async as users" [users]="users"></app-user-item>
 </ul>
