@@ -7,11 +7,13 @@ import { UserItemComponent } from "./user-item/user-item.component";
 import { UserListComponent } from './user-list/user-list.component';
 import { UserListFilterComponent } from './user-list-filter/user-list-filter.component';
 import { Store } from "./service/store.service";
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const routes: Routes = [
   { path: 'users', component: UserComponent,
     children: [
       { path: '', component: UserListComponent },
+      { path: ':userId', component: UserDetailComponent },
     ]
   },
 ]
@@ -21,6 +23,7 @@ const routes: Routes = [
     UserItemComponent,
     UserListComponent,
     UserListFilterComponent,
+    UserDetailComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
